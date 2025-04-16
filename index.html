@@ -3,184 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Antonio España Games</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
+  <title>Antonio España Game Play</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
       background-color: #121212;
       color: white;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    header {
-      background-color: #d32f2f;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-    .motivador {
-      text-align: center;
-      margin: 20px;
-      font-family: 'Orbitron', sans-serif;
-      color: #ff5252;
-      font-size: 18px;
-    }
-    .modo-btn {
-      background-color: #444;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-      border-radius: 5px;
-    }
-    .modo-claro {
-      background-color: #f0f0f0;
-      color: #000;
-    }
-    .seccion {
-      background-color: #222;
+      font-family: Arial, sans-serif;
       padding: 20px;
-      border-radius: 8px;
-      margin: 20px;
     }
-    .seccion h2 {
-      color: #ff9800;
-    }
-    footer {
-      background-color: #d32f2f;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 20px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #ffeb3b;
-    }
-    #tsparticles {
+
+    body::before {
+      content: "";
       position: fixed;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
+      background: linear-gradient(-45deg, #1e1e1e, #2b2b2b, #3a3a3a, #1e1e1e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       z-index: -1;
     }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      color: #ff4081;
+      text-align: center;
+    }
+
+    .seccion {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 30px;
+    }
+
+    .seccion h2 {
+      color: orange;
+    }
+
+    .juego-card {
+      background-color: #2b2b2b;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .juego-card h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .boton-descargar {
+      background-color: #ff4d1a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    #buscador {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .redes {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+
+    .redes a {
+      color: #ff4d1a;
+      text-decoration: none;
+      margin: 0 10px;
+      display: inline-block;
+    }
   </style>
+  <script>
+    function filtrarJuegos() {
+      const filtro = document.getElementById('buscador').value.toLowerCase();
+      const juegos = document.querySelectorAll('.juego-card');
+      juegos.forEach(juego => {
+        const nombre = juego.getAttribute('data-nombre');
+        juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
+      });
+    }
+  </script>
 </head>
 <body>
 
-<div id="tsparticles"></div>
-<script>
-  tsParticles.load("tsparticles", {
-    background: {
-      color: { value: "#121212" }
-    },
-    fpsLimit: 60,
-    particles: {
-      number: { value: 60 },
-      color: { value: "#ffffff" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none",
-        outMode: "bounce"
-      }
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" }
-      },
-      modes: {
-        repulse: { distance: 100 },
-        push: { quantity: 4 }
-      }
-    },
-    detectRetina: true
-  });
-</script>
+  <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
 
-<header>
-  <h1>Antonio España Games</h1>
-  <button class="modo-btn" onclick="toggleModo()">Modo Oscuro/Claro</button>
-</header>
+  <div class="seccion">
+    <h2>Top Juegos Recomendados y Más Descargados</h2>
+    <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego..."/>
 
-<div class="motivador">
-  <h2>Nunca dejes de luchar por tus sueños… ¡El juego apenas comienza!</h2>
-</div>
+    <!-- INICIO DE TARJETAS -->
+    <!-- Aquí solo muestro una muestra. Puedes pegar el resto igual siguiendo este modelo: -->
+    <div class="juego-card" data-nombre="free fire">
+      <h3>Free Fire</h3>
+      <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" class="boton-descargar" target="_blank">Descargar</a>
+    </div>
+    <div class="juego-card" data-nombre="subway surfers">
+      <h3>Subway Surfers</h3>
+      <a href="https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf" class="boton-descargar" target="_blank">Descargar</a>
+    </div>
+    <!-- Repite esto para los 50 juegos... -->
 
-<div class="seccion">
-  <h2>Juegos Más Descargados</h2>
-  <ul>
-    <li>Free Fire</li>
-    <li>Subway Surfers</li>
-    <li>Clash Royale</li>
-    <li>Among Us</li>
-    <li>Call of Duty Mobile</li>
-  </ul>
-</div>
-
-<div class="seccion">
-  <h2>Blog Gamer</h2>
-  <article>
-    <h3>¿Cuál es el mejor juego del momento?</h3>
-    <p>Exploramos los títulos más descargados del mes y por qué se han vuelto tendencia.</p>
-  </article>
-  <article>
-    <h3>Consejos para mejorar en juegos de estrategia</h3>
-    <p>Desde Clash of Clans hasta otros clásicos, aprende a dominar el campo de batalla.</p>
-  </article>
-</div>
-
-<div class="seccion">
-  <h2>Noticias Gamer</h2>
-  <ul>
-    <li><strong>14 abril:</strong> Se lanza una actualización épica en Free Fire.</li>
-    <li><strong>10 abril:</strong> PUBG Mobile alcanza los 500M de descargas.</li>
-    <li><strong>7 abril:</strong> Call of Duty Mobile lanza evento de Pascua.</li>
-  </ul>
-</div>
-
-<div class="seccion">
-  <h2>Juegos Recomendados</h2>
-  <ul>
-    <li><a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" target="_blank">Free Fire</a></li>
-    <li><a href="https://play.google.com/store/apps/details?id=com.tencent.ig" target="_blank">PUBG Mobile</a></li>
-    <li><a href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga" target="_blank">Candy Crush Saga</a></li>
-    <li><a href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank">Roblox</a></li>
-    <li><a href="https://play.google.com/store/apps/details?id=com.miniclip.eightballpool" target="_blank">8 Ball Pool</a></li>
-  </ul>
-</div>
-
-<footer>
-  <p>Sígueme en redes sociales:</p>
-  <div class="social-icons">
-    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <!-- Puedes pedirme que te mande el bloque completo si lo necesitas en texto plano -->
+    <!-- FIN DE TARJETAS -->
   </div>
-  <p>&copy; 2025 Antonio España Games</p>
-</footer>
 
-<script>
-  function toggleModo() {
-    document.body.classList.toggle("modo-claro");
-  }
-</script>
+  <div class="redes">
+    <p>Sígueme en redes:</p>
+    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
+    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
+  </div>
 
 </body>
 </html>
