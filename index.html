@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antonio España Games V2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      background-color: #c00;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav, .filters {
+      background: #222;
+      padding: 10px;
+      text-align: center;
+    }
+    nav button, .filters button {
+      margin: 5px;
+      padding: 10px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    nav button:hover, .filters button:hover {
+      background-color: #666;
+    }
+    main {
+      padding: 20px;
+    }
+    .game {
+      background: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .game:hover {
+      transform: scale(1.02);
+    }
+    .game .favorite {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: gray;
+      cursor: pointer;
+    }
+    .game .favorite.active {
+      color: red;
+    }
+    .rating {
+      margin-top: 10px;
+    }
+    .rating i {
+      color: #ccc;
+      cursor: pointer;
+    }
+    .rating i.rated {
+      color: gold;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .social a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+    }
+    .ranking {
+      margin: 20px 0;
+      background: #eee;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+
+<style>
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .game-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+  }
+
+  .game-card:hover {
+    transform: scale(1.05);
+    background-color: #292929;
+  }
+
+  .game-card a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  body.dark-mode .game-card {
+    background-color: #333;
+  }
+
+  body.dark-mode .game-card:hover {
+    background-color: #444;
+  }
+</style>
+
+</head>
+<body>
+
+
+
+
+
+
+<header style="display: flex; align-items: center; padding: 10px; background-color: #d32f2f; color: white;">
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/ESPN_wordmark.svg" alt="Logo" style="height: 40px;">
+    <h1 style="margin: 0; font-size: 24px;">Antonio España Games</h1>
+  </div>
+</header>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<div style="text-align: center; margin-top: 20px;">
+  <h2 style="font-family: 'Orbitron', sans-serif; font-size: 22px; color: #ff5252;">
+    Nunca dejes de luchar por tus sueños… ¡El juego apenas comienza!
+  </h2>
+</div>
+
+
+
+
+<!-- Modo Oscuro/Claro -->
+<button onclick="document.body.classList.toggle('dark-mode')">Modo Oscuro/Claro</button>
+<style>
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  .dark-mode a {
+    color: #80cbc4;
+  }
+</style>
+
+
+<div class="filters">
+  <button onclick="toggleFavorites()">Ver Favoritos</button>
+</div>
+
+<main>
+  <section class="ranking">
+    <h2>Juegos Más Descargados</h2>
+    <ol id="rankingList"></ol>
+  </section>
+
+  <section id="games">
+    <div class="game" data-id="candy">
+      <span class="favorite" onclick="toggleFavorite('candy')"><i class="fa fa-heart"></i></span>
+      <h3>Candy Crush Saga</h3>
+      <a href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga" onclick="countDownload('candy')">Descargar</a>
+      <p><small>Descargas: <span class="counter" id="downloads-candy">0</span></small></p>
+      <div class="rating" data-id="candy">
+        <i class="fa fa-star" onclick="rate('candy', 1)"></i>
+        <i class="fa fa-star" onclick="rate('candy', 2)"></i>
+        <i class="fa fa-star" onclick="rate('candy', 3)"></i>
+        <i class="fa fa-star" onclick="rate('candy', 4)"></i>
+        <i class="fa fa-star" onclick="rate('candy', 5)"></i>
+      </div>
+    </div>
+
+    <div class="game" data-id="clash">
+      <span class="favorite" onclick="toggleFavorite('clash')"><i class="fa fa-heart"></i></span>
+      <h3>Clash of Clans</h3>
+      <a href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans" onclick="countDownload('clash')">Descargar</a>
+      <p><small>Descargas: <span class="counter" id="downloads-clash">0</span></small></p>
+      <div class="rating" data-id="clash">
+        <i class="fa fa-star" onclick="rate('clash', 1)"></i>
+        <i class="fa fa-star" onclick="rate('clash', 2)"></i>
+        <i class="fa fa-star" onclick="rate('clash', 3)"></i>
+        <i class="fa fa-star" onclick="rate('clash', 4)"></i>
+        <i class="fa fa-star" onclick="rate('clash', 5)"></i>
+      </div>
+    </div>
+  </section>
+
+<!-- Sección de Blog -->
+<section id="blog">
+  <h2>Blog Gamer</h2>
+  <article>
+    <h3>¿Cuál es el mejor juego del momento?</h3>
+    <p>Exploramos los títulos más descargados del mes y por qué se han vuelto tendencia.</p>
+  </article>
+  <article>
+    <h3>Consejos para mejorar en juegos de estrategia</h3>
+    <p>Desde Clash of Clans hasta otros clásicos, aprende a dominar el campo de batalla.</p>
+  </article>
+</section>
+
+<!-- Sección de Noticias -->
+<section id="noticias">
+  <h2>Noticias Gamer</h2>
+  <ul>
+    <li><strong>14 abril:</strong> Se lanza una actualización épica en Free Fire con nuevos modos.</li>
+    <li><strong>10 abril:</strong> PUBG Mobile alcanza los 500 millones de descargas.</li>
+    <li><strong>7 abril:</strong> Call of Duty Mobile introduce evento de Pascua con recompensas.</li>
+  </ul>
+</section>
+
+<!-- Sección de Contacto -->
+
+
+
+
+<!-- Sección de Más Juegos con Diseño -->
+<section id="mas-juegos">
+  <h2>Más Juegos Recomendados</h2>
+  <div class="game-grid">
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" target="_blank">Free Fire</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.tencent.ig" target="_blank">PUBG Mobile</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga" target="_blank">Candy Crush Saga</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.zeptolab.omnom.run.google" target="_blank">Om Nom: Run</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.miniclip.eightballpool" target="_blank">8 Ball Pool</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank">Roblox</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.habby.archero" target="_blank">Archero</a></div>
+    <div class="game-card"><a href="https://play.google.com/store/apps/details?id=com.skgames.trafficrider" target="_blank">Traffic Rider</a></div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <p>Sígueme en redes sociales:</p>
+  <div class="social">
+    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p>Creado por Antonio España</p>
+</footer>
+
+<script>
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || {};
+  let downloads = JSON.parse(localStorage.getItem("downloads")) || {};
+  let ratings = JSON.parse(localStorage.getItem("ratings")) || {};
+
+  function toggleFavorite(id) {
+    favorites[id] = !favorites[id];
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    updateUI();
+  }
+
+  function countDownload(id) {
+    downloads[id] = (downloads[id] || 0) + 1;
+    localStorage.setItem("downloads", JSON.stringify(downloads));
+    updateUI();
+  }
+
+  function rate(id, value) {
+    ratings[id] = value;
+    localStorage.setItem("ratings", JSON.stringify(ratings));
+    updateUI();
+  }
+
+  function toggleFavorites() {
+    const games = document.querySelectorAll(".game");
+    games.forEach(game => {
+      const id = game.dataset.id;
+      if (favorites[id]) {
+        game.style.display = "block";
+      } else {
+        game.style.display = "none";
+      }
+    });
+  }
+
+  function updateUI() {
+    document.querySelectorAll(".game").forEach(game => {
+      const id = game.dataset.id;
+
+      const favIcon = game.querySelector(".favorite i");
+      if (favorites[id]) {
+        favIcon.classList.add("active");
+      } else {
+        favIcon.classList.remove("active");
+      }
+
+      const countSpan = document.getElementById("downloads-" + id);
+      if (countSpan) {
+        countSpan.textContent = downloads[id] || 0;
+      }
+
+      const ratingStars = game.querySelectorAll(".rating i");
+      const rating = ratings[id] || 0;
+      ratingStars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add("rated");
+        } else {
+          star.classList.remove("rated");
+        }
+      });
+    });
+
+    // Ranking
+    const sorted = Object.entries(downloads).sort((a, b) => b[1] - a[1]);
+    const ranking = document.getElementById("rankingList");
+    ranking.innerHTML = "";
+    sorted.forEach(([id, count]) => {
+      const title = document.querySelector(`.game[data-id="${id}"] h3`).textContent;
+      const li = document.createElement("li");
+      li.textContent = `${title} (${count} descargas)`;
+      ranking.appendChild(li);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", updateUI);
+</script>
+
+
+<!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.3/tsparticles.bundle.min.js"></script>
+<div id="tsparticles" style="position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
+<script>
+  tsParticles.load("tsparticles", {
+    background: {
+      color: { value: "#121212" }
+    },
+    fpsLimit: 60,
+    particles: {
+      number: { value: 80 },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: "none",
+        random: false,
+        straight: false,
+        outMode: "bounce"
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { quantity: 4 }
+      }
+    },
+    detectRetina: true
+  });
+</script>
+
+</body>
+</html>
