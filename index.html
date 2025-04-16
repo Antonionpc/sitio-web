@@ -1,39 +1,99 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Antonio España Game Play</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
       background-color: #121212;
       color: white;
-      font-family: Arial, sans-serif;
       padding: 20px;
     }
+
+    /* Splash screen */
+    #splash {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #ff6ec4, #7873f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      animation: fadeOut 2s ease 4s forwards;
+      z-index: 10;
+    }
+
+    #splash h1 {
+      font-size: 3em;
+      animation: pulse 2s infinite;
+    }
+
+    #splash p {
+      font-size: 1.2em;
+      margin-top: 1em;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    #contenido {
+      display: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     h1 {
       color: #ff4081;
       text-align: center;
     }
+
     .seccion {
       background-color: #1f1f1f;
       padding: 20px;
       border-radius: 20px;
       margin-top: 30px;
     }
+
     .seccion h2 {
       color: orange;
     }
+
     .juego-card {
       background-color: #2b2b2b;
       border-radius: 16px;
       padding: 16px;
       margin: 16px 0;
     }
+
     .juego-card h3 {
       margin: 0 0 10px 0;
     }
+
     .boton-descargar {
       background-color: #ff4d1a;
       color: white;
@@ -43,6 +103,7 @@
       font-weight: bold;
       display: inline-block;
     }
+
     #buscador {
       width: 100%;
       padding: 10px;
@@ -51,11 +112,13 @@
       margin-bottom: 20px;
       font-size: 16px;
     }
+
     .redes {
       text-align: center;
       margin-top: 40px;
       font-size: 18px;
     }
+
     .redes a {
       color: #ff4d1a;
       text-decoration: none;
@@ -63,28 +126,23 @@
       display: inline-block;
     }
   </style>
-  <script>
-    function filtrarJuegos() {
-      const filtro = document.getElementById('buscador').value.toLowerCase();
-      const juegos = document.querySelectorAll('.juego-card');
-      juegos.forEach(juego => {
-        const nombre = juego.getAttribute('data-nombre');
-        juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
-      });
-    }
-  </script>
 </head>
 <body>
 
-  <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
+  <!-- Splash screen -->
+  <div id="splash">
+    <h1>¡Bienvenido!</h1>
+    <p>Estás a punto de descubrir los mejores juegos gratis...</p>
+  </div>
 
-  <div class="seccion">
-    <h2>Top Juegos Recomendados y Más Descargados</h2>
+  <!-- Contenido principal -->
+  <div id="contenido">
+    <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
 
-    <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
-
-    
-    <div class="juego-card" data-nombre="free fire">
+    <div class="seccion">
+      <h2>Top Juegos Recomendados y Más Descargados</h2>
+      <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
+      <div class="juego-card" data-nombre="free fire">
       <h3>Free Fire</h3>
       <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" class="boton-descargar" target="_blank">Descargar</a>
     </div>
@@ -341,13 +399,29 @@
     
 
   </div>
+    </div>
 
-  <div class="redes">
-    <p>Sígueme en redes:</p>
-    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
-    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
+    <div class="redes">
+      <p>Sígueme en redes:</p>
+      <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
+      <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
+    </div>
   </div>
 
+  <script>
+    function filtrarJuegos() {
+      const filtro = document.getElementById('buscador').value.toLowerCase();
+      const juegos = document.querySelectorAll('.juego-card');
+      juegos.forEach(juego => {
+        const nombre = juego.getAttribute('data-nombre');
+        juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
+      });
+    }
+
+    setTimeout(() => {
+      document.getElementById('contenido').style.display = 'block';
+    }, 4000);
+  </script>
 </body>
 </html>
 
