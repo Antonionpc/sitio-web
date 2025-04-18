@@ -1,130 +1,13 @@
+<!-- INICIO DEL DOCUMENTO HTML -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Antonio España Game Play</title>
+  <!-- Aquí inicia el estilo -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background-color: #121212;
-      color: white;
-      padding: 20px;
-    }
-
-    /* Splash screen */
-    #splash {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, #ff6ec4, #7873f5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: white;
-      text-align: center;
-      animation: fadeOut 2s ease 4s forwards;
-      z-index: 10;
-    }
-
-    #splash h1 {
-      font-size: 3em;
-      animation: pulse 2s infinite;
-    }
-
-    #splash p {
-      font-size: 1.2em;
-      margin-top: 1em;
-      opacity: 0.8;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    #contenido {
-      display: none;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    h1 {
-      color: #ff4081;
-      text-align: center;
-    }
-
-    .seccion {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 20px;
-      margin-top: 30px;
-    }
-
-    .seccion h2 {
-      color: orange;
-    }
-
-    .juego-card {
-      background-color: #2b2b2b;
-      border-radius: 16px;
-      padding: 16px;
-      margin: 16px 0;
-    }
-
-    .juego-card h3 {
-      margin: 0 0 10px 0;
-    }
-
-    .boton-descargar {
-      background-color: #ff4d1a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    #buscador {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-
-    .redes {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 18px;
-    }
-
-    .redes a {
-      color: #ff4d1a;
-      text-decoration: none;
-      margin: 0 10px;
-      display: inline-block;
-    }
+    /* ... (estilos completos que ya tienes en tu archivo) ... */
   </style>
 </head>
 <body>
@@ -142,263 +25,10 @@
     <div class="seccion">
       <h2>Top Juegos Recomendados y Más Descargados</h2>
       <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
-      <div class="juego-card" data-nombre="free fire">
-      <h3>Free Fire</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="subway surfers">
-      <h3>Subway Surfers</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="clash royale">
-      <h3>Clash Royale</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="among us">
-      <h3>Among Us</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="call of duty mobile">
-      <h3>Call of Duty Mobile</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="pubg mobile">
-      <h3>PUBG Mobile</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.tencent.ig" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="candy crush saga">
-      <h3>Candy Crush Saga</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="clash of clans">
-      <h3>Clash of Clans</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="roblox">
-      <h3>Roblox</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.roblox.client" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="minecraft">
-      <h3>Minecraft</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="brawl stars">
-      <h3>Brawl Stars</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.supercell.brawlstars" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="8 ball pool">
-      <h3>8 Ball Pool</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.miniclip.eightballpool" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="temple run">
-      <h3>Temple Run</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.imangi.templerun" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="angry birds 2">
-      <h3>Angry Birds 2</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.rovio.baba" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="fifa mobile">
-      <h3>FIFA Mobile</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="mobile legends">
-      <h3>Mobile Legends</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="pokemon go">
-      <h3>Pokemon GO</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="hill climb racing">
-      <h3>Hill Climb Racing</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.fingersoft.hillclimb" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="jetpack joyride">
-      <h3>Jetpack Joyride</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.halfbrick.jetpackjoyride" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="asphalt 9">
-      <h3>Asphalt 9</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftA9HM" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="plants vs zombies">
-      <h3>Plants vs Zombies</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.ea.game.pvzfree_row" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="geometry dash">
-      <h3>Geometry Dash</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.robtopx.geometryjump" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="shadow fight 2">
-      <h3>Shadow Fight 2</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.nekki.shadowfight" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="dragon city">
-      <h3>Dragon City</h3>
-      <a href="https://play.google.com/store/apps/details?id=es.socialpoint.DragonCity" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="score! hero">
-      <h3>Score! Hero</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.firsttouchgames.story" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="genshin impact">
-      <h3>Genshin Impact</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="dream league soccer">
-      <h3>Dream League Soccer</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.firsttouchgames.dls7" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="zombie tsunami">
-      <h3>Zombie Tsunami</h3>
-      <a href="https://play.google.com/store/apps/details?id=net.mobigame.zombietsunami" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="fruit ninja">
-      <h3>Fruit Ninja</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.halfbrick.fruitninja" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="fortnite">
-      <h3>Fortnite</h3>
-      <a href="https://www.fortnite.com/mobile/android" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="stumble guys">
-      <h3>Stumble Guys</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.kitkagames.fallbuddies" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="marvel contest of champions">
-      <h3>Marvel Contest of Champions</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.kabam.marvelbattle" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="idle miner tycoon">
-      <h3>Idle Miner Tycoon</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.fluffyfairygames.idleminertycoon" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="real racing 3">
-      <h3>Real Racing 3</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.ea.games.r3_row" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="terraria">
-      <h3>Terraria</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.and.games505.TerrariaPaid" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="my talking tom">
-      <h3>My Talking Tom</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.outfit7.mytalkingtomfree" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="talking angela">
-      <h3>Talking Angela</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.outfit7.talkingangelafree" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="mini militia">
-      <h3>Mini Militia</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.appsomniacs.da2" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="sniper 3d">
-      <h3>Sniper 3D</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.fungames.sniper3d" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="pou">
-      <h3>Pou</h3>
-      <a href="https://play.google.com/store/apps/details?id=me.pou.app" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="jet car stunts">
-      <h3>Jet Car Stunts</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.trueaxis.jetcarstunts" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="world cricket championship">
-      <h3>World Cricket Championship</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.nextwave.wcc2" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="stick war: legacy">
-      <h3>Stick War: Legacy</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.maxgames.stickwarlegacy" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="rodeo stampede">
-      <h3>Rodeo Stampede</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.yodo1.rodeostampede" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="pixel gun 3d">
-      <h3>Pixel Gun 3D</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.pixel.gun3d" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="color switch">
-      <h3>Color Switch</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.colorswitch.switch" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="dumb ways to die">
-      <h3>Dumb Ways to Die</h3>
-      <a href="https://play.google.com/store/apps/details?id=air.au.com.metro.DumbWaysToDie" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="tetris">
-      <h3>Tetris</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.n3twork.tetris" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="ludo king">
-      <h3>Ludo King</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.ludo.king" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="vector">
-      <h3>Vector</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.nekki.vector" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
-    <div class="juego-card" data-nombre="bike race">
-      <h3>Bike Race</h3>
-      <a href="https://play.google.com/store/apps/details?id=com.topfreegames.bikeracefreeworld" class="boton-descargar" target="_blank">Descargar</a>
-    </div>
-    
 
-  </div>
+      <!-- Aquí van todos los bloques .juego-card con los juegos -->
+      <!-- ... (lista de juegos tal como está en tu HTML) ... -->
+
     </div>
 
     <div class="redes">
@@ -408,6 +38,7 @@
     </div>
   </div>
 
+  <!-- Script para funcionalidad -->
   <script>
     function filtrarJuegos() {
       const filtro = document.getElementById('buscador').value.toLowerCase();
@@ -421,7 +52,26 @@
     setTimeout(() => {
       document.getElementById('contenido').style.display = 'block';
     }, 4000);
+
+    function mostrarDespedida() {
+      const pantalla = document.getElementById('despedida');
+      pantalla.style.display = 'flex';
+      pantalla.style.animation = 'fadeIn 1s ease';
+      setTimeout(() => {
+        window.location.href = "https://www.instagram.com/antonio_144_";
+      }, 3000);
+    }
   </script>
+
+  <!-- Botón para salir -->
+  <button id="botonSalir" onclick="mostrarDespedida()">Salir</button>
+
+  <!-- Pantalla de despedida -->
+  <div id="despedida">
+    <h1>¡Hasta pronto!</h1>
+    <p>Gracias por visitarnos. Vuelve cuando quieras.</p>
+  </div>
+
 </body>
 </html>
 
