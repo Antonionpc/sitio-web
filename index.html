@@ -1,76 +1,224 @@
-<!-- INICIO DEL DOCUMENTO HTML -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Antonio España Game Play</title>
-  <!-- Aquí inicia el estilo -->
   <style>
-    /* ... (estilos completos que ya tienes en tu archivo) ... */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: white;
+      padding: 20px;
+    }
+
+    #splash {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #ff6ec4, #7873f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      animation: fadeOut 2s ease 4s forwards;
+      z-index: 10;
+    }
+
+    #splash h1 {
+      font-size: 3em;
+      animation: pulse 2s infinite;
+    }
+
+    #splash p {
+      font-size: 1.2em;
+      margin-top: 1em;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    #contenido {
+      display: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      color: #ff4081;
+      text-align: center;
+    }
+
+    .seccion {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 30px;
+    }
+
+    .seccion h2 {
+      color: orange;
+    }
+
+    .juego-card {
+      background-color: #2b2b2b;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .juego-card h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .boton-descargar {
+      background-color: #ff4d1a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    #buscador {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .redes {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+
+    .redes a {
+      color: #ff4d1a;
+      text-decoration: none;
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    #botonSalir {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4d1a;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #despedida {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, #ff6ec4, #7873f5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    #despedida h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    #despedida p {
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Splash screen -->
-  <div id="splash">
-    <h1>¡Bienvenido!</h1>
-    <p>Estás a punto de descubrir los mejores juegos gratis...</p>
+<div id="splash">
+  <h1>¡Bienvenido!</h1>
+  <p>Estás a punto de descubrir los mejores juegos gratis...</p>
+</div>
+
+<div id="contenido">
+  <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
+
+  <div class="seccion">
+    <h2>Top Juegos Recomendados y Más Descargados</h2>
+    <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
+    
+    <!-- Aquí pegas todas las tarjetas de juegos (.juego-card)... -->
+    <!-- OMITIDO POR ESPACIO: ya están en tu archivo original y siguen el mismo formato -->
+
   </div>
 
-  <!-- Contenido principal -->
-  <div id="contenido">
-    <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
-
-    <div class="seccion">
-      <h2>Top Juegos Recomendados y Más Descargados</h2>
-      <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
-
-      <!-- Aquí van todos los bloques .juego-card con los juegos -->
-      <!-- ... (lista de juegos tal como está en tu HTML) ... -->
-
-    </div>
-
-    <div class="redes">
-      <p>Sígueme en redes:</p>
-      <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
-      <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
-    </div>
+  <div class="redes">
+    <p>Sígueme en redes:</p>
+    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
+    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
   </div>
+</div>
 
-  <!-- Script para funcionalidad -->
-  <script>
-    function filtrarJuegos() {
-      const filtro = document.getElementById('buscador').value.toLowerCase();
-      const juegos = document.querySelectorAll('.juego-card');
-      juegos.forEach(juego => {
-        const nombre = juego.getAttribute('data-nombre');
-        juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
-      });
-    }
+<script>
+  function filtrarJuegos() {
+    const filtro = document.getElementById('buscador').value.toLowerCase();
+    const juegos = document.querySelectorAll('.juego-card');
+    juegos.forEach(juego => {
+      const nombre = juego.getAttribute('data-nombre');
+      juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
+    });
+  }
 
+  setTimeout(() => {
+    document.getElementById('contenido').style.display = 'block';
+  }, 4000);
+
+  function mostrarDespedida() {
+    const pantalla = document.getElementById('despedida');
+    pantalla.style.display = 'flex';
+    pantalla.style.animation = 'fadeIn 1s ease';
     setTimeout(() => {
-      document.getElementById('contenido').style.display = 'block';
-    }, 4000);
+      window.location.href = "https://www.instagram.com/antonio_144_";
+    }, 3000);
+  }
+</script>
 
-    function mostrarDespedida() {
-      const pantalla = document.getElementById('despedida');
-      pantalla.style.display = 'flex';
-      pantalla.style.animation = 'fadeIn 1s ease';
-      setTimeout(() => {
-        window.location.href = "https://www.instagram.com/antonio_144_";
-      }, 3000);
-    }
-  </script>
+<button id="botonSalir" onclick="mostrarDespedida()">Salir</button>
 
-  <!-- Botón para salir -->
-  <button id="botonSalir" onclick="mostrarDespedida()">Salir</button>
-
-  <!-- Pantalla de despedida -->
-  <div id="despedida">
-    <h1>¡Hasta pronto!</h1>
-    <p>Gracias por visitarnos. Vuelve cuando quieras.</p>
-  </div>
+<div id="despedida">
+  <h1>¡Hasta pronto!</h1>
+  <p>Gracias por visitarnos. Vuelve cuando quieras.</p>
+</div>
 
 </body>
 </html>
