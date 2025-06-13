@@ -1,224 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Antonio España Game Play</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía: Temas de Derecho Informático</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
     body {
-      background-color: #121212;
-      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
       padding: 20px;
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/29/03/53/technology-1869236_1280.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #000;
     }
-
-    #splash {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, #ff6ec4, #7873f5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: white;
-      text-align: center;
-      animation: fadeOut 2s ease 4s forwards;
-      z-index: 10;
-    }
-
-    #splash h1 {
-      font-size: 3em;
-      animation: pulse 2s infinite;
-    }
-
-    #splash p {
-      font-size: 1.2em;
-      margin-top: 1em;
-      opacity: 0.8;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    #contenido {
-      display: none;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     h1 {
-      color: #ff4081;
       text-align: center;
-    }
-
-    .seccion {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 20px;
-      margin-top: 30px;
-    }
-
-    .seccion h2 {
-      color: orange;
-    }
-
-    .juego-card {
-      background-color: #2b2b2b;
-      border-radius: 16px;
-      padding: 16px;
-      margin: 16px 0;
-    }
-
-    .juego-card h3 {
-      margin: 0 0 10px 0;
-    }
-
-    .boton-descargar {
-      background-color: #ff4d1a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    #buscador {
-      width: 100%;
+      color: #fff;
+      background-color: rgba(0,0,0,0.6);
       padding: 10px;
       border-radius: 10px;
-      border: none;
-      margin-bottom: 20px;
-      font-size: 16px;
     }
-
-    .redes {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 18px;
-    }
-
-    .redes a {
-      color: #ff4d1a;
-      text-decoration: none;
-      margin: 0 10px;
-      display: inline-block;
-    }
-
-    #botonSalir {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff4d1a;
-      color: white;
-      border: none;
-      padding: 12px 20px;
+    section {
+      background: rgba(255,255,255,0.9);
       border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 10;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 850px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
-    #despedida {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle, #ff6ec4, #7873f5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      text-align: center;
-      z-index: 9999;
+    section h2 {
+      color: #273c75;
     }
-
-    #despedida h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-
-    #despedida p {
-      font-size: 1.2em;
+    section img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
+  <h1>Guía: Temas de Derecho Informático</h1>
 
-<div id="splash">
-  <h1>¡Bienvenido!</h1>
-  <p>Estás a punto de descubrir los mejores juegos gratis...</p>
-</div>
+  <section>
+    <h2>1. Requisitos para ser fedatario juramentado</h2>
+    <img src="https://cdn.pixabay.com/photo/2017/08/10/03/29/notary-2616660_1280.jpg" alt="Fedatario juramentado">
+    <p>Un fedatario con especialización informática debe:</p>
+    <ul>
+      <li>Cumplir requisitos para ser notario (título, edad, ciudadanía).</li>
+      <li>Realizar curso de especialización en informática y obtener diploma acreditado.</li>
+      <li>Registrar su firma, prestar juramento y obtener inscripción por el Colegio de Abogados.</li>
+    </ul>
+  </section>
 
-<div id="contenido">
-  <h1>¡Tu juego apenas comienza! - Antonio España Game Play</h1>
+  <section>
+    <h2>2. Contratos informáticos</h2>
+    <img src="https://cdn.pixabay.com/photo/2018/05/08/08/28/contract-3385451_1280.jpg" alt="Contrato informático">
+    <p>Son contratos que regulan la compraventa, desarrollo o prestación de bienes (hardware/software) o servicios informáticos.</p>
+  </section>
 
-  <div class="seccion">
-    <h2>Top Juegos Recomendados y Más Descargados</h2>
-    <input type="text" id="buscador" onkeyup="filtrarJuegos()" placeholder="Buscar juego...">
-    
-    <!-- Aquí pegas todas las tarjetas de juegos (.juego-card)... -->
-    <!-- OMITIDO POR ESPACIO: ya están en tu archivo original y siguen el mismo formato -->
+  <section>
+    <h2>3. Clasificación de los contratos informáticos</h2>
+    <img src="https://cdn.pixabay.com/photo/2015/05/31/10/55/laptop-791071_1280.jpg" alt="Clasificación de contratos">
+    <p>Se dividen en:</p>
+    <ul>
+      <li>Por objeto: hardware, software o servicios informáticos.</li>
+      <li>Por forma: informáticos (objeto informático) vs. electrónicos (celebrados por medios digitales).</li>
+    </ul>
+  </section>
 
-  </div>
+  <section>
+    <h2>4. Regulación normativa</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/09/08/12/46/legal-1655277_1280.jpg" alt="Regulación normativa">
+    <p>No existe una ley específica para contratos informáticos, por lo que aplican normas civiles y mercantiles generales. La Convención UNCITRAL también es relevante.</p>
+  </section>
 
-  <div class="redes">
-    <p>Sígueme en redes:</p>
-    <a href="https://www.instagram.com/antonio_144_?igsh=bzRpaGdrMXdwdHBm" target="_blank">Instagram</a> |
-    <a href="https://youtube.com/@senhor_sensei-7?si=HyeQSON2mSoX99w5" target="_blank">YouTube</a>
-  </div>
-</div>
+  <section>
+    <h2>5. Validez y valor probatorio</h2>
+    <img src="https://cdn.pixabay.com/photo/2019/06/18/11/07/law-4283358_1280.jpg" alt="Validez probatoria">
+    <p>Los documentos electrónicos y copias digitalizadas por fedatario informático tienen el mismo valor legal que los originales en papel.</p>
+  </section>
 
-<script>
-  function filtrarJuegos() {
-    const filtro = document.getElementById('buscador').value.toLowerCase();
-    const juegos = document.querySelectorAll('.juego-card');
-    juegos.forEach(juego => {
-      const nombre = juego.getAttribute('data-nombre');
-      juego.style.display = nombre.includes(filtro) ? 'block' : 'none';
-    });
-  }
+  <section>
+    <h2>6. Eficacia jurídica del documento electrónico</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/03/09/09/30/security-1245144_1280.jpg" alt="Documento electrónico">
+    <p>Gracias al principio de equivalencia funcional, un documento firmado digitalmente tiene plena eficacia jurídica, siempre que esté respaldado por certificados válidos.</p>
+  </section>
 
-  setTimeout(() => {
-    document.getElementById('contenido').style.display = 'block';
-  }, 4000);
+  <section>
+    <h2>7. Legislación comparada</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/11/18/14/15/law-1834320_1280.jpg" alt="Legislación internacional">
+    <p>En varios países se reconocen contratos informáticos y electrónicos; la Convención UNCITRAL establece principios internacionales aceptados.</p>
+  </section>
 
-  function mostrarDespedida() {
-    const pantalla = document.getElementById('despedida');
-    pantalla.style.display = 'flex';
-    pantalla.style.animation = 'fadeIn 1s ease';
-    setTimeout(() => {
-      window.location.href = "https://www.instagram.com/antonio_144_";
-    }, 3000);
-  }
-</script>
+  <section>
+    <h2>8. Vulneración de la seguridad de internet</h2>
+    <img src="https://cdn.pixabay.com/photo/2017/01/23/20/40/hacker-2002468_1280.jpg" alt="Ciberseguridad">
+    <p>El fedatario informático puede certificar eventos relacionados con seguridad digital, identidad digital, suplantaciones y certificados.</p>
+  </section>
 
-<button id="botonSalir" onclick="mostrarDespedida()">Salir</button>
-
-<div id="despedida">
-  <h1>¡Hasta pronto!</h1>
-  <p>Gracias por visitarnos. Vuelve cuando quieras.</p>
-</div>
+  <section>
+    <h2>9. Mecanismos de vulneración</h2>
+    <img src="https://cdn.pixabay.com/photo/2020/04/16/07/49/hacker-5051416_1280.jpg" alt="Vulneraciones">
+    <ul>
+      <li>Pérdida o robo de clave privada de firma digital.</li>
+      <li>Intrusión en sistemas informáticos.</li>
+      <li>Sociedades certificadoras que incumplen estándares de seguridad.</li>
+    </ul>
+  </section>
 
 </body>
 </html>
